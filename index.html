@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MarTech Analysis Agent</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
+  <script type="importmap">
+    {
+      "imports": {
+        "@google/genai": "https://esm.sh/@google/genai@^0.7.0"
+      }
+    }
+  </script>
+</head>
+<body>
+  <div id="app-container">
+    <header>
+      <h1>MarTech Analysis Agent</h1>
+      <button id="start-over-button">Start Over</button>
+    </header>
+
+    <main id="main-content">
+      <!-- Welcome Screen -->
+      <div id="welcome-screen" class="view active">
+        <h2>Welcome! I'm your MarTech Analysis Agent.</h2>
+        <p>I can help you diagnose and improve your Google Marketing Platform setup. Please select a service to analyze:</p>
+        <div class="service-selection">
+          <button class="service-button" data-service="GTM">
+            <h3>Google Tag Manager</h3>
+            <p>Audit tags, triggers, and data layer implementation.</p>
+          </button>
+          <button class="service-button" data-service="GA4">
+            <h3>Google Analytics 4</h3>
+            <p>Analyze event tracking, conversions, and configuration.</p>
+          </button>
+          <button class="service-button" data-service="Ads">
+            <h3>Google Ads</h3>
+            <p>Debug conversion tracking and remarketing tags.</p>
+          </button>
+        </div>
+      </div>
+
+      <!-- Form Screen -->
+      <div id="form-screen" class="view">
+        <h2 id="form-title"></h2>
+        <p>Please provide the following details. I will use this information to conduct a detailed analysis based on best practices. I do not connect to your accounts directly.</p>
+        <form id="analysis-form">
+          <div id="form-inputs"></div>
+          <button type="submit">Analyze Now</button>
+        </form>
+      </div>
+
+      <!-- Loading Screen -->
+      <div id="loading-screen" class="view">
+        <div class="spinner"></div>
+        <h2>Analyzing your setup...</h2>
+        <p>This may take a moment. I'm checking for common issues and best practice alignment.</p>
+      </div>
+
+      <!-- Results Screen -->
+      <div id="results-screen" class="view">
+        <div id="report-container"></div>
+        <div id="follow-up-chat">
+            <h3>Have questions about this report? Ask me here.</h3>
+            <div id="follow-up-messages"></div>
+            <form id="follow-up-form">
+                <input type="text" id="follow-up-input" placeholder="e.g., 'Can you explain point 2 in more detail?'" autocomplete="off" required>
+                <button type="submit" aria-label="Send message">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2 .01 7z"/>
+                    </svg>
+                </button>
+            </form>
+        </div>
+      </div>
+
+    </main>
+  </div>
+  <script type="module" src="index.tsx"></script>
+</body>
+</html>

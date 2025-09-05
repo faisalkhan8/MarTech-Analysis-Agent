@@ -1,0 +1,5 @@
+{
+  "name": "MarTech Analyst Agent",
+  "description": "An AI agent to help technical marketers debug Google Ads, GTM, and GA4 setups.",
+  "requestFramePermissions": []
+}
